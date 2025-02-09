@@ -23,6 +23,8 @@ vim .env.dev
 ```shell
 # ローカル実行
 deno run --env-file=.env.local -A ./src/main.ts
+```
+```shell
 # dev実行
 deno run --env-file=.env.dev -A ./src/main.ts
 ```
