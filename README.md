@@ -43,6 +43,15 @@ deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --en
 
 ## リクエスト
 
+- 全件取得
+```shell
+curl http://localhost:8000/accounts
+```
+- 1件取得
+```shell
+curl http://localhost:8000/accounts/1
+```
+- 1件追加
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"account_name" : "soto"}' http://localhost:8000/accounts
 ```
