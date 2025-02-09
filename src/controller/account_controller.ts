@@ -1,7 +1,20 @@
-import { fetchAccounts } from "../application/account_service.ts";
-import { Context } from "npm:hono";
+import {Context} from "npm:hono";
+import {addAccount, getAllAccounts} from "../application/account_service.ts";
 
-export const getAccountsHandler = async (c: Context) => {
-    const accounts = await fetchAccounts();
-    return c.json(accounts);
+export const getAllAccountsHandler = async (c: Context) => {
+  const accounts = await getAllAccounts();
+  return c.json(accounts);
+};
+
+export const addAccountHandler = async (c: Context) => {
+  try {
+    const { account_name } = await c.req.json();
+    await addAccount(account_name);
+    return c.text("Account '${account_name}' added", 201);
+  } catch (error: any) { // TODO: any以外の型にしたい
+    if (error.code === "ER_DUP_ENTRY") {
+      return c.text("Duplicate account name", 409);
+    }
+    return c.text("Internal Server Error", 500);
+  }
 };
