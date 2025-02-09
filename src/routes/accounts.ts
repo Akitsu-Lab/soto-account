@@ -1,7 +1,8 @@
-import { Hono } from "npm:hono";
-import { getAccountsHandler } from "../controller/account_controller.ts";
+import {Hono} from "npm:hono";
+import {addAccountHandler, getAllAccountsHandler} from "../controller/account_controller.ts";
 
 const accounts = new Hono();
-accounts.get("/", getAccountsHandler);
+accounts.get("/", getAllAccountsHandler);
+accounts.post("/", addAccountHandler);
 
 export default accounts;

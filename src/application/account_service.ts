@@ -1,5 +1,12 @@
-import { getAccounts } from "../infrastructure/repository/account_repository.ts";
+import {
+  addAccountDb,
+  getAllAccountsDb,
+} from "../infrastructure/repository/account_repository.ts";
 
-export const fetchAccounts = async () => {
-    return await getAccounts();
+export const getAllAccounts = async () => {
+  return await getAllAccountsDb();
+};
+
+export const addAccount = async (account_name: string) => {
+  return await addAccountDb(account_name);
 };
