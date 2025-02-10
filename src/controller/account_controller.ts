@@ -1,9 +1,23 @@
-import {Context} from "npm:hono";
-import {addAccount, getAllAccounts} from "../application/account_service.ts";
+import { Context } from "npm:hono";
+import {
+  addAccount,
+  getAllAccounts,
+  getOneAccount,
+} from "../application/account_service.ts";
 
 export const getAllAccountsHandler = async (c: Context) => {
   const accounts = await getAllAccounts();
   return c.json(accounts);
+};
+
+export const getOneAccountHandler = async (c: Context) => {
+  const account_id = c.req.param("account_id");
+  const account = await getOneAccount(Number(account_id));
+  if (account) {
+    return c.json(account);
+  } else {
+    return c.text("Account not found", 404);
+  }
 };
 
 export const addAccountHandler = async (c: Context) => {
