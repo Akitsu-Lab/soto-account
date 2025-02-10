@@ -35,6 +35,10 @@ deno run --env-file=.env.dev -A ./src/main.ts
 deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --env-file=.env.local -A ./src/main.ts
 ```
 
+## deno deploy
+
+[ダッシュボード](https://dash.deno.com/projects/soto-account)
+
 ## 参考
 
 - [How to use MySQL2 with Deno](https://docs.deno.com/examples/mysql2_tutorial/)
