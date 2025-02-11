@@ -32,7 +32,7 @@ deno run --env-file=.env.dev -A ./src/main.ts
 ## コンパイル
 ```shell
 # linux用バイナリ作成
-deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --env-file=.env.local -A ./src/main.ts
+deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --env-file=.env.dev -A ./src/main.ts
 ```
 
 ## deno deploy
@@ -44,6 +44,7 @@ deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --en
 - MySQL
   - [How to use MySQL2 with Deno](https://docs.deno.com/examples/mysql2_tutorial/)
   - [node-mysql2](https://sidorares.github.io/node-mysql2/docs/examples)
+  - [How to handle errors?](https://sidorares.github.io/node-mysql2/docs/faq/how-to-handle-errors)
 - Hono
   - [Hono](https://hono-ja.pages.dev/docs/getting-started/deno)
 - Logger
