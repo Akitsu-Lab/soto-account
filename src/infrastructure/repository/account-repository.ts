@@ -7,7 +7,7 @@ export const getAllAccountsDb = async () => {
   customLogger("Connecting to the database...");
   const [rows] = await connection.query<RowDataPacket[]>("SELECT * FROM `accounts`");
   // DBレコードをを DTO に変換
-  const accounts = rows.map(row => new AccountDto(row.account_id, row.account_name, row.account_balance));
+  const accounts = rows.map(row => new AccountDto(row.account_id, row.account_name, row.balance));
   accounts.forEach(account => {
     customLogger(`accountId: ${account.accountId}, accountName: ${account.accountName}, balance: ${account.balance}`);
   });
@@ -28,7 +28,7 @@ export const getOneAccountDb = async (accountId: number) => {
     const accountDto = new AccountDto(
       rows[0].account_id,
       rows[0].account_name,
-      rows[0].account_balance,
+      rows[0].balance,
     );
     customLogger(`accountId: ${accountDto.accountId}, accountName: ${accountDto.accountName}, balance: ${accountDto.balance}`);
     return accountDto;
