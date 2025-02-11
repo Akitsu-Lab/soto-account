@@ -1,8 +1,8 @@
 import { Hono } from "npm:hono";
-import accounts_routes from "./routes/accounts_routes.ts";
+import accountsRoutes from "./routes/accounts-routes.ts";
 
 const app = new Hono();
 
-app.route("/accounts", accounts_routes);
+app.route("/accounts", accountsRoutes);
 
 Deno.serve({ port: 8000 }, app.fetch);
