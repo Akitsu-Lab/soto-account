@@ -1,15 +1,21 @@
 import connection from "../../config/db.ts";
-import {AccountDto} from "../dto/accountDto.ts";
-import {RowDataPacket} from "npm:mysql2@2.3.3";
-import {customLogger} from "../../main.ts";
+import { AccountDto } from "../dto/accountDto.ts";
+import { RowDataPacket } from "npm:mysql2@2.3.3";
+import { customLogger } from "../../main.ts";
 
 export const getAllAccountsDb = async () => {
   customLogger("Connecting to the database...");
-  const [rows] = await connection.query<RowDataPacket[]>("SELECT * FROM `accounts`");
+  const [rows] = await connection.query<RowDataPacket[]>(
+    "SELECT * FROM `accounts`",
+  );
   // DBレコードをを DTO に変換
-  const accounts = rows.map(row => new AccountDto(row.account_id, row.account_name, row.balance));
-  accounts.forEach(account => {
-    customLogger(`accountId: ${account.accountId}, accountName: ${account.accountName}, balance: ${account.balance}`);
+  const accounts = rows.map((row) =>
+    new AccountDto(row.account_id, row.account_name, row.balance)
+  );
+  accounts.forEach((account) => {
+    customLogger(
+      `accountId: ${account.accountId}, accountName: ${account.accountName}, balance: ${account.balance}`,
+    );
   });
   return accounts;
 };
@@ -30,17 +36,24 @@ export const getOneAccountDb = async (accountId: number) => {
       rows[0].account_name,
       rows[0].balance,
     );
-    customLogger(`accountId: ${accountDto.accountId}, accountName: ${accountDto.accountName}, balance: ${accountDto.balance}`);
+    customLogger(
+      `accountId: ${accountDto.accountId}, accountName: ${accountDto.accountName}, balance: ${accountDto.balance}`,
+    );
     return accountDto;
   }
 };
 
 export const addAccountDb = async (accountName: string) => {
   customLogger("Connecting to the database...");
-  {
+  try {
     await connection.query(
       "INSERT INTO `accounts` (account_name) VALUES (?)",
       [accountName],
     );
+  } catch (err) {
+    if (err instanceof Error) {
+      customLogger("query error:", err.message);
+    }
+    throw err;
   }
 };
