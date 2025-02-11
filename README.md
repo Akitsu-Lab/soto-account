@@ -46,6 +46,8 @@ deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --en
   - [node-mysql2](https://sidorares.github.io/node-mysql2/docs/examples)
 - Hono
   - [Hono](https://hono-ja.pages.dev/docs/getting-started/deno)
+- Logger
+  - [Logger Middleware](https://hono.dev/docs/middleware/builtin/logger)
 - Deno
   - [Deno env](https://docs.deno.com/runtime/reference/env_variables/)
 - 設計
