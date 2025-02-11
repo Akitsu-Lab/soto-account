@@ -53,3 +53,5 @@ deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --en
 - 設計
   - [レイヤードアーキテクチャで作る](https://zenn.dev/flutteruniv/books/flutter-architecture/viewer/5_layered-architecture)
   - [お前らがModelと呼ぶアレをなんと呼ぶべきか。近辺の用語(EntityとかVOとかDTOとか)について整理しつつ考える](https://qiita.com/takasek/items/70ab5a61756ee620aee6)
+- スタイルガイド（コーディング規約）
+  - [](https://typescript-jp.gitbook.io/deep-dive/styleguide)
