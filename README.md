@@ -43,6 +43,7 @@ deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --en
 
 - MySQL
   - [How to use MySQL2 with Deno](https://docs.deno.com/examples/mysql2_tutorial/)
+  - [node-mysql2](https://sidorares.github.io/node-mysql2/docs/examples)
 - Hono
   - [Hono](https://hono-ja.pages.dev/docs/getting-started/deno)
 - Deno
