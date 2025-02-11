@@ -1,5 +1,5 @@
 import connection from "../../config/db.ts";
-import {AccountDto} from "../dto/account-dto.ts";
+import {AccountDto} from "../dto/accountDto.ts";
 import {RowDataPacket} from "npm:mysql2@2.3.3";
 import {customLogger} from "../../main.ts";
 

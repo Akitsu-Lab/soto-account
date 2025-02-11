@@ -1,5 +1,5 @@
 import {Hono} from "npm:hono";
-import {addAccountHandler, getAllAccountsHandler, getOneAccountHandler} from "../controller/account-controller.ts";
+import {addAccountHandler, getAllAccountsHandler, getOneAccountHandler} from "../controller/accountController.ts";
 
 const accountsRoutes = new Hono();
 accountsRoutes.get("/", getAllAccountsHandler);

@@ -3,7 +3,7 @@ import {
   addAccount,
   getAllAccounts,
   getOneAccount,
-} from "../application/account-service.ts";
+} from "../application/accountService.ts";
 
 export const getAllAccountsHandler = async (c: Context) => {
   const accounts = await getAllAccounts();
