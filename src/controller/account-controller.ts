@@ -3,7 +3,7 @@ import {
   addAccount,
   getAllAccounts,
   getOneAccount,
-} from "../application/account_service.ts";
+} from "../application/account-service.ts";
 
 export const getAllAccountsHandler = async (c: Context) => {
   const accounts = await getAllAccounts();
@@ -11,8 +11,8 @@ export const getAllAccountsHandler = async (c: Context) => {
 };
 
 export const getOneAccountHandler = async (c: Context) => {
-  const account_id = c.req.param("account_id");
-  const account = await getOneAccount(Number(account_id));
+  const accountId = c.req.param("account_id");
+  const account = await getOneAccount(Number(accountId));
   if (account) {
     return c.json(account);
   } else {

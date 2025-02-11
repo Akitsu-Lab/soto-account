@@ -41,6 +41,17 @@ deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --en
 
 ## 参考
 
-- [How to use MySQL2 with Deno](https://docs.deno.com/examples/mysql2_tutorial/)
-- [Hono](https://hono-ja.pages.dev/docs/getting-started/deno)
-- [Deno env](https://docs.deno.com/runtime/reference/env_variables/)
+- MySQL
+  - [How to use MySQL2 with Deno](https://docs.deno.com/examples/mysql2_tutorial/)
+  - [node-mysql2](https://sidorares.github.io/node-mysql2/docs/examples)
+- Hono
+  - [Hono](https://hono-ja.pages.dev/docs/getting-started/deno)
+- Logger
+  - [Logger Middleware](https://hono.dev/docs/middleware/builtin/logger)
+- Deno
+  - [Deno env](https://docs.deno.com/runtime/reference/env_variables/)
+- 設計
+  - [レイヤードアーキテクチャで作る](https://zenn.dev/flutteruniv/books/flutter-architecture/viewer/5_layered-architecture)
+  - [お前らがModelと呼ぶアレをなんと呼ぶべきか。近辺の用語(EntityとかVOとかDTOとか)について整理しつつ考える](https://qiita.com/takasek/items/70ab5a61756ee620aee6)
+- スタイルガイド（コーディング規約）
+  - [](https://typescript-jp.gitbook.io/deep-dive/styleguide)
