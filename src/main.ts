@@ -1,6 +1,6 @@
 import { Hono } from "npm:hono";
 import { logger } from 'npm:hono/logger';
-import accountsRoutes from "./routes/accounts-routes.ts";
+import accountsRoutes from "./routes/accountsRoutes.ts";
 
 const app = new Hono();
 
