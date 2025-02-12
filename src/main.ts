@@ -7,7 +7,7 @@ const app = new Hono();
 
 // CORSミドルウェアの適用
 app.use('*', cors({
-    origin: '*',
+    origin: 'https://soto-ui.vercel.app',
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization'],
     maxAge: 600,
