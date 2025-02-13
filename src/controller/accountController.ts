@@ -7,7 +7,7 @@ export const getAllAccountsHandler = async (c: Context) => {
 };
 
 export const getOneAccountHandler = async (c: Context) => {
-  const accountId = c.req.param("account_id");
+  const accountId = c.req.param("accountId");
   const account = await getOneAccount(Number(accountId));
   if (account) {
     return c.json(account);
@@ -17,7 +17,7 @@ export const getOneAccountHandler = async (c: Context) => {
 };
 
 export const addAccountHandler = async (c: Context) => {
-    const { account_name } = await c.req.json();
-    await addAccount(account_name);
-    return c.text(`Account '${account_name}' added`, 201);
+    const { accountName } = await c.req.json();
+    await addAccount(accountName);
+    return c.text(`Account '${accountName}' added`, 201);
 };
