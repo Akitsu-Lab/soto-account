@@ -1,8 +1,8 @@
 import {
-    addAccountDb,
-    deleteAccountDb,
-    getAllAccountsDb,
-    getOneAccountDb,
+  addAccountDb,
+  deleteAccountDb,
+  getAllAccountsDb,
+  getOneAccountDb,
 } from "../infrastructure/repository/accountRepository.ts";
 
 export const getAllAccounts = async () => {

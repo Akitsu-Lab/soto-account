@@ -1,5 +1,10 @@
-import {Context} from "npm:hono";
-import {addAccount, deleteAccount, getAllAccounts, getOneAccount,} from "../application/accountService.ts";
+import { Context } from "npm:hono";
+import {
+  addAccount,
+  deleteAccount,
+  getAllAccounts,
+  getOneAccount,
+} from "../application/accountService.ts";
 
 export const getAllAccountsHandler = async (c: Context) => {
   const accounts = await getAllAccounts();

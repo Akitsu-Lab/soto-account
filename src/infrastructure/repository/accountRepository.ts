@@ -1,7 +1,7 @@
 import connection from "../../config/db.ts";
-import {RowDataPacket} from "npm:mysql2@2.3.3";
-import {customLogger} from "../../main.ts";
-import {Account} from "../../domain/model/account.ts";
+import { RowDataPacket } from "npm:mysql2@2.3.3";
+import { customLogger } from "../../main.ts";
+import { Account } from "../../domain/model/account.ts";
 
 export const getAllAccountsDb = async () => {
   customLogger("Connecting to the database...");
