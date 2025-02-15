@@ -10,7 +10,7 @@ export const getAllAccountsDb = async () => {
   const [rows] = await connection.query<RowDataPacket[]>(
     "SELECT * FROM `accounts`",
   );
-  // DBレコードをを ドメインモデル に変換
+  // DBレコードを ドメインモデル に変換
   const accounts = rows.map((row) =>
     new Account(row.account_id, row.account_name, row.balance)
   );
