@@ -1,5 +1,5 @@
 import {Context} from "npm:hono";
-import {addAccount, getAllAccounts, getOneAccount,} from "../application/accountService.ts";
+import {addAccount, deleteAccount, getAllAccounts, getOneAccount,} from "../application/accountService.ts";
 
 export const getAllAccountsHandler = async (c: Context) => {
   const accounts = await getAllAccounts();
@@ -17,7 +17,13 @@ export const getOneAccountHandler = async (c: Context) => {
 };
 
 export const addAccountHandler = async (c: Context) => {
-    const { accountName } = await c.req.json();
-    await addAccount(accountName);
-    return c.text(`Account '${accountName}' added`, 201);
+  const { accountName } = await c.req.json();
+  await addAccount(accountName);
+  return c.text(`Account '${accountName}' added`, 201);
+};
+
+export const deleteAccountHandler = async (c: Context) => {
+  const accountId = c.req.param("accountId");
+  await deleteAccount(Number(accountId));
+  return c.text(`Account '${accountId}' deleted`, 201);
 };

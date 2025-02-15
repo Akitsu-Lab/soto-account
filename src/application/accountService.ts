@@ -1,4 +1,9 @@
-import {addAccountDb, getAllAccountsDb, getOneAccountDb,} from "../infrastructure/repository/accountRepository.ts";
+import {
+    addAccountDb,
+    deleteAccountDb,
+    getAllAccountsDb,
+    getOneAccountDb,
+} from "../infrastructure/repository/accountRepository.ts";
 
 export const getAllAccounts = async () => {
   return await getAllAccountsDb();
@@ -10,4 +15,8 @@ export const getOneAccount = async (accountId: number) => {
 
 export const addAccount = async (accountName: string) => {
   return await addAccountDb(accountName);
+};
+
+export const deleteAccount = async (accountId: number) => {
+  return await deleteAccountDb(accountId);
 };
