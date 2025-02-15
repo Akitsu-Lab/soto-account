@@ -1,6 +1,11 @@
 export class Balance {
-  value: number;
+  private readonly _value: number;
   constructor(value: number) {
-    this.value = value;
+    this._value = value;
+  }
+
+  // Getter
+  get value(): number {
+    return this._value;
   }
 }

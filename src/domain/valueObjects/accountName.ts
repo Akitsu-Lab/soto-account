@@ -1,6 +1,11 @@
 export class AccountName {
-  value: string;
+  private readonly _value: string;
   constructor(value: string) {
-    this.value = value;
+    this._value = value;
+  }
+
+  // Getter
+  get value(): string {
+    return this._value;
   }
 }
