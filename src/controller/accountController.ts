@@ -26,7 +26,6 @@ export const getOneAccountHandler = async (c: Context) => {
 };
 
 export const addAccountHandler = async (c: Context) => {
-  // const { accountName } = await c.req.json();
   const { accountName: accountNameFromBody } = await c.req.json();
   const accountName = new AccountName(accountNameFromBody);
   await addAccount(accountName);

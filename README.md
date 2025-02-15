@@ -63,3 +63,5 @@ deno compile --output target/soto-account --target x86_64-unknown-linux-gnu --en
   - [お前らがModelと呼ぶアレをなんと呼ぶべきか。近辺の用語(EntityとかVOとかDTOとか)について整理しつつ考える](https://qiita.com/takasek/items/70ab5a61756ee620aee6)
 - スタイルガイド（コーディング規約）
   - [スタイルガイド（コーディング規約）](https://typescript-jp.gitbook.io/deep-dive/styleguide)
+- webstormで`deno fmt`を自動で行う
+  - [Quick Tip: Deno Fmt in WebStorm](https://levelup.gitconnected.com/quick-tip-deno-fmt-in-webstorm-aa3e6d3b034d)
