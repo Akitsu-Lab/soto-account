@@ -9,7 +9,7 @@ const app = new Hono();
 app.use(
   "*",
   cors({
-    origin: "https://soto-ui.vercel.app",
+    origin: "*", //"https://soto-ui.vercel.app",
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
     allowHeaders: ["Content-Type", "Authorization"],
     maxAge: 600,
