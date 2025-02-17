@@ -1,24 +1,27 @@
-import {
-  addAccountDb,
-  deleteAccountDb,
-  getAllAccountsDb,
-  getOneAccountDb,
-} from "../infrastructure/repository/accountRepository.ts";
+import { AccountRepository } from "../infrastructure/repository/accountRepository.ts";
 import { AccountId } from "../domain/valueObjects/accountId.ts";
 import { AccountName } from "../domain/valueObjects/accountName.ts";
 
-export const getAllAccounts = async () => {
-  return await getAllAccountsDb();
-};
+export class AccountService {
+  private accountRepository;
 
-export const getOneAccount = async (accountId: AccountId) => {
-  return await getOneAccountDb(accountId);
-};
+  constructor(accountRepository: AccountRepository) {
+    this.accountRepository = accountRepository;
+  }
 
-export const addAccount = async (accountName: AccountName) => {
-  return await addAccountDb(accountName);
-};
+  async getAllAccounts() {
+    return await this.accountRepository.getAllAccountsDb();
+  }
 
-export const deleteAccount = async (accountId: AccountId) => {
-  return await deleteAccountDb(accountId);
-};
+  async getOneAccount(accountId: AccountId) {
+    return await this.accountRepository.getOneAccountDb(accountId);
+  }
+
+  async addAccount(accountName: AccountName) {
+    return await this.accountRepository.addAccountDb(accountName);
+  }
+
+  async deleteAccount(accountId: AccountId) {
+    return await this.accountRepository.deleteAccountDb(accountId);
+  }
+}
