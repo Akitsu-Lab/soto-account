@@ -4,6 +4,7 @@ import { customLogger } from "../../main.ts";
 import { Account } from "../../domain/model/account.ts";
 import { AccountId } from "../../domain/valueObjects/accountId.ts";
 import { AccountName } from "../../domain/valueObjects/accountName.ts";
+import { AccountNotFoundError } from "../../domain/errors/accountError.ts";
 
 export const getAllAccountsDb = async () => {
   customLogger("Connecting to the database...");
@@ -24,24 +25,31 @@ export const getAllAccountsDb = async () => {
 
 export const getOneAccountDb = async (accountId: AccountId) => {
   customLogger("Connecting to the database...");
-  const [rows] = await connection.query<RowDataPacket[]>(
-    "SELECT * FROM `accounts` WHERE account_id = ?",
-    accountId.value,
-  );
+  try {
+    const [rows] = await connection.query<RowDataPacket[]>(
+      "SELECT * FROM `accounts` WHERE account_id = ?",
+      accountId.value,
+    );
 
-  if (rows.length === 0) {
-    return null;
-  } else {
-    // DBレコードを モデル に変換
-    const account = new Account(
-      rows[0].account_id,
-      rows[0].account_name,
-      rows[0].balance,
-    );
-    customLogger(
-      `accountId: ${account.accountId}, accountName: ${account.accountName}, balance: ${account.balance}`,
-    );
-    return account;
+    if (rows.length === 0) {
+      // アカウントが見つからない場合
+      throw new AccountNotFoundError();
+    } else {
+      // DBレコードを モデル に変換
+      const account = new Account(
+        rows[0].account_id,
+        rows[0].account_name,
+        rows[0].balance,
+      );
+      customLogger(
+        `accountId: ${account.accountId}, accountName: ${account.accountName}, balance: ${account.balance}`,
+      );
+      return account;
+    }
+  } catch (err) {
+    if (err instanceof Error) {
+      throw err;
+    }
   }
 };
 
