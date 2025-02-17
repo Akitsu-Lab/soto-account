@@ -18,11 +18,7 @@ export const getOneAccountHandler = async (c: Context) => {
   const accountId = new AccountId(Number(accountIdFromParam));
   // accountIdと一致するアカウントを取得する
   const account = await getOneAccount(accountId);
-  if (account) {
-    return c.json(account);
-  } else {
-    return c.text("Account not found", 404);
-  }
+  return c.json(account);
 };
 
 export const addAccountHandler = async (c: Context) => {
