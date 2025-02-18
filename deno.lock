@@ -1,9 +1,22 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@std/assert@^1.0.11": "1.0.11",
+    "jsr:@std/internal@^1.0.5": "1.0.5",
     "npm:hono@*": "4.7.0",
     "npm:mysql2@2.3.3": "2.3.3",
     "npm:mysql2@^2.3.3": "2.3.3"
+  },
+  "jsr": {
+    "@std/assert@1.0.11": {
+      "integrity": "2461ef3c368fe88bc60e186e7744a93112f16fd110022e113a0849e94d1c83c1",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/internal@1.0.5": {
+      "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
+    }
   },
   "npm": {
     "denque@2.1.0": {
@@ -70,5 +83,15 @@
     "yallist@4.0.0": {
       "integrity": "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
     }
+  },
+  "remote": {
+    "https://deno.land/std@0.104.0/fmt/colors.ts": "d2f8355f00a74404668fc5a1e4a92983ce1a9b0a6ac1d40efbd681cb8f519586",
+    "https://deno.land/std@0.104.0/testing/_diff.ts": "5d3693155f561d1a5443ac751ac70aab9f5d67b4819a621d4b96b8a1a1c89620",
+    "https://deno.land/std@0.104.0/testing/asserts.ts": "e4311d45d956459d4423bc267208fe154b5294989da2ed93257b6a85cae0427e"
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@std/assert@^1.0.11"
+    ]
   }
 }
