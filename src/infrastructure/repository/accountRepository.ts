@@ -1,9 +1,10 @@
 import { Account } from "../../domain/model/account.ts";
 import { AccountName } from "../../domain/valueObjects/accountName.ts";
+import { AccountId } from "../../domain/valueObjects/accountId.ts";
 
 export interface AccountRepository {
-  getAllAccounts(): Promise<Account[]>;
-  getOneAccount(account_id: number): Promise<Account>;
-  addAccount(accountName: AccountName): Promise<void>;
-  deleteAccount(accountId: number): Promise<void>;
+  getAllAccountsDb(): Promise<Account[]>;
+  getOneAccountDb(account_id: AccountId): Promise<Account>;
+  addAccountDb(accountName: AccountName): Promise<void>;
+  deleteAccountDb(accountId: AccountId): Promise<void>;
 }
