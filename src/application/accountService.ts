@@ -1,11 +1,11 @@
-import { AccountRepository } from "../infrastructure/repository/accountRepository.ts";
+import { AccountRepositoryImpl } from "../infrastructure/repository/accountRepositoryImpl.ts";
 import { AccountId } from "../domain/valueObjects/accountId.ts";
 import { AccountName } from "../domain/valueObjects/accountName.ts";
 
 export class AccountService {
   private accountRepository;
 
-  constructor(accountRepository: AccountRepository) {
+  constructor(accountRepository: AccountRepositoryImpl) {
     this.accountRepository = accountRepository;
   }
 

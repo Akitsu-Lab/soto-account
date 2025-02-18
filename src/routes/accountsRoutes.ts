@@ -1,9 +1,9 @@
 import { Hono } from "npm:hono";
 import { AccountController } from "../controller/accountController.ts";
 import { AccountService } from "../application/accountService.ts";
-import { AccountRepository } from "../infrastructure/repository/accountRepository.ts";
+import { AccountRepositoryImpl } from "../infrastructure/repository/accountRepositoryImpl.ts";
 
-const accountRepository = new AccountRepository();
+const accountRepository = new AccountRepositoryImpl();
 const accountService = new AccountService(accountRepository);
 const accountController = new AccountController(accountService);
 
